@@ -31,7 +31,9 @@ public class LeaveRequestServlet extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// Replace with your actual DB details
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/leave_management", "root", "root");
+			Connection conn = DriverManager.getConnection(
+					"jdbc:mysql://maglev.proxy.rlwy.net:17156/railway?useSSL=false&allowPublicKeyRetrieval=true",
+					"root", "XSdfQjSTimyLYTcubhnMWosWDsrkNobr");
 
 			String sql = "INSERT INTO leave_requests (username, leave_type, from_date, to_date, reason, status) VALUES (?, ?, ?, ?, ?, ?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
