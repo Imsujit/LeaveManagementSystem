@@ -27,7 +27,9 @@ public class AdminLeaveRequestsServlet extends HttpServlet {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/leave_management", "root", "root");
+			Connection conn = DriverManager.getConnection(
+					"jdbc:mysql://maglev.proxy.rlwy.net:17156/railway?useSSL=false&allowPublicKeyRetrieval=true",
+					"root", "XSdfQjSTimyLYTcubhnMWosWDsrkNobr");
 
 			String sql = "SELECT id, username, leave_type, from_date, to_date, reason, status FROM leave_requests";
 			PreparedStatement ps = conn.prepareStatement(sql);
