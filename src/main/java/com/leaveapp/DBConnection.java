@@ -8,9 +8,8 @@ public class DBConnection {
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(
-					"jdbc:mysql://maglev.proxy.rlwy.net:17156/railway?useSSL=false&allowPublicKeyRetrieval=true",
-					"root", "XSdfQjSTimyLYTcubhnMWosWDsrkNobr");
+			conn = DriverManager.getConnection("jdbc:mysql://mysql.railway.internal:3306/railway", "root",
+					"oKVhNnwRVtOezbUSzvolAYhLcsFuMsGs");
 
 		} catch (Exception e) {
 			e.printStackTrace();
