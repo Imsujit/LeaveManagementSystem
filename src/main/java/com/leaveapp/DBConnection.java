@@ -8,8 +8,7 @@ public class DBConnection {
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://mysql.railway.internal:3306/railway", "root",
-					"oKVhNnwRVtOezbUSzvolAYhLcsFuMsGs");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/leave_management", "root", "root");
 
 		} catch (Exception e) {
 			e.printStackTrace();

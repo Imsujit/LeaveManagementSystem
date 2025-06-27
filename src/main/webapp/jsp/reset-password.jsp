@@ -1,9 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String token = request.getParameter("token");
+    if (token == null || token.trim().isEmpty()) {
+        response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Register</title>
+  <title>Reset Password</title>
   <style>
     * {
       margin: 0;
@@ -13,7 +20,7 @@
 
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -63,10 +70,7 @@
       font-size: 0.9rem;
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    select {
+    input[type="password"] {
       width: 100%;
       padding: 0.8rem;
       border: 2px solid #e1e8ed;
@@ -76,22 +80,29 @@
       background: #f8f9fa;
     }
 
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="password"]:focus,
-    select:focus {
+    input[type="password"]:focus {
       outline: none;
       border-color: #3498db;
       background: white;
       box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
     }
 
-    select {
-      cursor: pointer;
+    .password-requirements {
+      background: #e8f4fd;
+      border: 1px solid #bee5eb;
+      color: #0c5460;
+      padding: 0.8rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
     }
 
-    select option {
-      padding: 0.5rem;
+    .password-requirements ul {
+      margin: 0.5rem 0 0 1rem;
+    }
+
+    .password-requirements li {
+      margin-bottom: 0.2rem;
     }
 
     .submit-btn {
@@ -117,6 +128,12 @@
       transform: translateY(0);
     }
 
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     .form-footer {
       text-align: center;
       padding: 1.5rem 2rem;
@@ -126,7 +143,7 @@
 
     .form-footer p {
       color: #6c757d;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       margin: 0;
     }
 
@@ -140,37 +157,6 @@
     .form-footer a:hover {
       color: #2980b9;
       text-decoration: underline;
-    }
-
-    .input-icon {
-      position: relative;
-    }
-
-    .input-icon::before {
-      content: '';
-      position: absolute;
-      left: 0.8rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 16px;
-      height: 16px;
-      background-size: contain;
-      opacity: 0.5;
-    }
-
-    /* Email validation styling */
-    .email-validation {
-      font-size: 0.8rem;
-      margin-top: 0.3rem;
-      color: #6c757d;
-    }
-
-    .email-validation.valid {
-      color: #28a745;
-    }
-
-    .email-validation.invalid {
-      color: #dc3545;
     }
 
     @media (max-width: 480px) {
@@ -223,92 +209,82 @@
 <body>
   <div class="form-container">
     <div class="form-header">
-      <h2>Create Account</h2>
-      <p>Join our leave management system</p>
+      <h2>🔑 Reset Password</h2>
+      <p>Create your new password</p>
     </div>
     
     <div class="form-content">
-      <form action="<%=request.getContextPath()%>/RegisterServlet" method="post" id="registerForm">
+      <form action="<%=request.getContextPath()%>/ResetPasswordServlet" method="post" id="resetForm">
+        <input type="hidden" name="token" value="<%=token%>">
+        
         <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" required placeholder="Enter your username">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newPassword" name="newPassword" required placeholder="Enter your new password">
+          <div class="password-requirements">
+            <strong>Password Requirements:</strong>
+            <ul>
+              <li>At least 6 characters long</li>
+              <li>Mix of letters and numbers recommended</li>
+              <li>Avoid common passwords</li>
+            </ul>
+          </div>
         </div>
 
         <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required placeholder="Enter your email address">
-          <div class="email-validation" id="emailValidation"></div>
+          <label for="confirmPassword">Confirm New Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your new password">
         </div>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required placeholder="Enter your password">
-        </div>
-
-        <div class="form-group">
-          <label for="role">Role</label>
-          <select id="role" name="role" required>
-            <option value="">--Select Role--</option>
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
-
-        <input type="submit" value="Create Account" class="submit-btn" id="submitBtn">
+        <input type="submit" value="Reset Password" class="submit-btn" id="submitBtn">
       </form>
     </div>
 
     <div class="form-footer">
-      <p>Already have an account? <a href="<%=request.getContextPath()%>/jsp/login.jsp">Login here</a></p>
+      <p><a href="<%=request.getContextPath()%>/jsp/login.jsp">← Back to Login</a></p>
     </div>
   </div>
 
   <script>
-    // Email validation
-    document.getElementById('email').addEventListener('input', function() {
-      const email = this.value;
-      const validation = document.getElementById('emailValidation');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Password confirmation validation
+    document.getElementById('confirmPassword').addEventListener('input', function() {
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmPassword = this.value;
+      const submitBtn = document.getElementById('submitBtn');
       
-      if (email.length === 0) {
-        validation.textContent = '';
-        validation.className = 'email-validation';
-      } else if (emailRegex.test(email)) {
-        validation.textContent = '✓ Valid email format';
-        validation.className = 'email-validation valid';
+      if (newPassword !== confirmPassword) {
+        this.style.borderColor = '#e74c3c';
+        submitBtn.disabled = true;
       } else {
-        validation.textContent = '✗ Please enter a valid email address';
-        validation.className = 'email-validation invalid';
+        this.style.borderColor = '#27ae60';
+        submitBtn.disabled = false;
       }
     });
 
-    // Add loading state to form submission
-    document.getElementById('registerForm').addEventListener('submit', function(e) {
-      const submitBtn = document.getElementById('submitBtn');
-      const email = document.getElementById('email').value;
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Form submission with loading state
+    document.getElementById('resetForm').addEventListener('submit', function(e) {
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
       
-      // Validate email before submission
-      if (!emailRegex.test(email)) {
+      if (newPassword !== confirmPassword) {
         e.preventDefault();
-        alert('Please enter a valid email address');
+        alert('Passwords do not match!');
         return false;
       }
       
+      if (newPassword.length < 6) {
+        e.preventDefault();
+        alert('Password must be at least 6 characters long!');
+        return false;
+      }
+      
+      const submitBtn = document.getElementById('submitBtn');
       submitBtn.classList.add('loading');
-      submitBtn.value = 'Creating Account...';
+      submitBtn.value = 'Resetting Password...';
     });
 
-    // Add focus effects
-    const inputs = document.querySelectorAll('input, select');
-    inputs.forEach(input => {
-      input.addEventListener('focus', function() {
-        this.parentElement.style.transform = 'scale(1.02)';
-      });
-      
-      input.addEventListener('blur', function() {
-        this.parentElement.style.transform = 'scale(1)';
-      });
+    // Auto-focus on new password field
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('newPassword').focus();
     });
   </script>
 </body>

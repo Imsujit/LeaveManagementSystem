@@ -30,8 +30,7 @@ public class LeaveStatusServlet extends HttpServlet {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://mysql.railway.internal:3306/railway", "root",
-					"oKVhNnwRVtOezbUSzvolAYhLcsFuMsGs");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/leave_management", "root", "root");
 
 			String sql = "SELECT leave_type, from_date, to_date, reason, status FROM leave_requests WHERE username = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);

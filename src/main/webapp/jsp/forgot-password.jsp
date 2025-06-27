@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Forgot Password</title>
   <style>
     * {
       margin: 0;
@@ -13,7 +13,7 @@
 
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -22,7 +22,7 @@
     }
 
     .form-container {
-      width: 400px;
+      width: 450px;
       background: white;
       border-radius: 12px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
@@ -30,7 +30,7 @@
     }
 
     .form-header {
-      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
       color: white;
       padding: 2rem;
       text-align: center;
@@ -62,6 +62,18 @@
       font-size: 0.9rem;
       text-align: center;
       font-weight: 500;
+      white-space: pre-line; /* Allows line breaks */
+    }
+
+    .info-message {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      color: #856404;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      text-align: center;
     }
 
     .form-group {
@@ -76,8 +88,7 @@
       font-size: 0.9rem;
     }
 
-    input[type="text"],
-    input[type="password"] {
+    input[type="email"] {
       width: 100%;
       padding: 0.8rem;
       border: 2px solid #e1e8ed;
@@ -87,12 +98,11 @@
       background: #f8f9fa;
     }
 
-    input[type="text"]:focus,
-    input[type="password"]:focus {
+    input[type="email"]:focus {
       outline: none;
-      border-color: #27ae60;
+      border-color: #e74c3c;
       background: white;
-      box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+      box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
     }
 
     /* Error state for inputs */
@@ -108,7 +118,7 @@
 
     .submit-btn {
       width: 100%;
-      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
       color: white;
       padding: 0.9rem;
       border: none;
@@ -122,30 +132,30 @@
 
     .submit-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
     }
 
     .submit-btn:active {
       transform: translateY(0);
     }
 
-    .forgot-password {
+    .back-to-login {
       text-align: center;
       margin-top: 1rem;
       padding-top: 1rem;
       border-top: 1px solid #e1e8ed;
     }
 
-    .forgot-password a {
-      color: #e74c3c;
+    .back-to-login a {
+      color: #3498db;
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.3s ease;
     }
 
-    .forgot-password a:hover {
-      color: #c0392b;
+    .back-to-login a:hover {
+      color: #2980b9;
       text-decoration: underline;
     }
 
@@ -158,19 +168,23 @@
 
     .form-footer p {
       color: #6c757d;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       margin: 0;
     }
 
-    .form-footer a {
-      color: #27ae60;
+    .register-link {
+      margin-top: 0.5rem;
+    }
+
+    .register-link a {
+      color: #e74c3c;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s ease;
     }
 
-    .form-footer a:hover {
-      color: #2ecc71;
+    .register-link a:hover {
+      color: #c0392b;
       text-decoration: underline;
     }
 
@@ -219,108 +233,68 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
-    /* Welcome message styling */
-    .welcome-message {
-      text-align: center;
-      margin-bottom: 1rem;
-      padding: 1rem;
-      background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
-      border-radius: 8px;
-      color: #2c3e50;
-    }
-
-    .welcome-message h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    .welcome-message p {
-      font-size: 0.85rem;
-      opacity: 0.8;
-    }
   </style>
 </head>
 <body>
   <div class="form-container">
     <div class="form-header">
-      <h2>Welcome Back</h2>
-      <p>Sign in to your account</p>
+      <h2>🔐 Forgot Password</h2>
+      <p>Reset your account password</p>
     </div>
     
     <div class="form-content">
-      <div class="welcome-message">
-        <h3>Leave Management System</h3>
-        <p>Access your dashboard and manage your leave</p>
-      </div>
-
       <!-- Display Error Message -->
       <% if (request.getAttribute("errorMessage") != null) { %>
         <div class="error-message">
           <%= request.getAttribute("errorMessage") %>
         </div>
+      <% } else { %>
+        <div class="info-message">
+          📧 Enter your email address and we'll send you a link to reset your password.
+        </div>
       <% } %>
 
-      <form action="<%=request.getContextPath()%>/LoginServlet" method="post">
+      <form action="<%=request.getContextPath()%>/ForgotPasswordServlet" method="post" id="forgotForm">
         <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" required placeholder="Enter your username" 
-                 value="<%= request.getAttribute("username") != null ? request.getAttribute("username") : "" %>"
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your registered email address"
+                 value="<%= request.getAttribute("email") != null ? request.getAttribute("email") : "" %>"
                  class="<%= request.getAttribute("errorMessage") != null ? "error" : "" %>">
         </div>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required placeholder="Enter your password"
-                 class="<%= request.getAttribute("errorMessage") != null ? "error" : "" %>">
-        </div>
-
-        <input type="submit" value="Sign In" class="submit-btn">
+        <input type="submit" value="Send Reset Link" class="submit-btn" id="submitBtn">
       </form>
 
-      <!-- Forgot Password Link -->
-      <div class="forgot-password">
-        <a href="<%=request.getContextPath()%>/jsp/forgot-password.jsp">🔐 Forgot your password?</a>
+      <!-- Back to Login Link -->
+      <div class="back-to-login">
+        <a href="<%=request.getContextPath()%>/jsp/login.jsp">← Back to Login</a>
       </div>
     </div>
 
     <div class="form-footer">
-      <p>Don't have an account? <a href="<%=request.getContextPath()%>/jsp/register.jsp">Register here</a></p>
+      <p>🔒 We'll never share your email with anyone else.</p>
+      <div class="register-link">
+        <p>Don't have an account? <a href="<%=request.getContextPath()%>/jsp/register.jsp">Register here</a></p>
+      </div>
     </div>
   </div>
 
   <script>
     // Add loading state to form submission
-    document.querySelector('form').addEventListener('submit', function() {
-      const submitBtn = document.querySelector('.submit-btn');
+    document.getElementById('forgotForm').addEventListener('submit', function() {
+      const submitBtn = document.getElementById('submitBtn');
       submitBtn.classList.add('loading');
-      submitBtn.value = 'Signing In...';
+      submitBtn.value = 'Sending Email...';
     });
 
-    // Add focus effects
-    const inputs = document.querySelectorAll('input');
-    inputs.forEach(input => {
-      input.addEventListener('focus', function() {
-        this.parentElement.style.transform = 'scale(1.02)';
-        // Remove error class on focus
-        this.classList.remove('error');
-      });
-      
-      input.addEventListener('blur', function() {
-        this.parentElement.style.transform = 'scale(1)';
-      });
+    // Remove error styling on input focus
+    document.getElementById('email').addEventListener('focus', function() {
+      this.classList.remove('error');
     });
 
-    // Auto-focus on username field (or password if username is filled)
+    // Auto-focus on email field
     document.addEventListener('DOMContentLoaded', function() {
-      const usernameField = document.getElementById('username');
-      const passwordField = document.getElementById('password');
-      
-      if (usernameField.value.trim() !== '') {
-        passwordField.focus();
-      } else {
-        usernameField.focus();
-      }
+      document.getElementById('email').focus();
     });
   </script>
 </body>
