@@ -13,16 +13,17 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            color: #333;
+            color: #1a202c;
         }
 
         .header {
             background: white;
-            border-bottom: 1px solid #e5e7eb;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            color: #1a202c;
+            padding: 1.2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .header-content {
@@ -32,13 +33,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 60px;
         }
 
         .logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #111827;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: #667eea;
         }
 
         .nav-actions {
@@ -48,134 +55,154 @@
         }
 
         .back-btn {
-            padding: 0.6rem 1.2rem;
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border: none;
             border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.875rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            border: none;
-            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
         }
 
         .back-btn:hover {
-            background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
             transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
-        }
-
-        .back-btn:active {
-            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
         }
 
         .user-info {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: #64748b;
             font-weight: 500;
-            color: #374151;
-            font-size: 0.9rem;
         }
 
         .user-avatar {
-            width: 28px;
-            height: 28px;
-            background: #667eea;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: 500;
-            font-size: 0.8rem;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .container {
             max-width: 500px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 2rem 1rem 4rem;
+            min-height: calc(100vh - 80px);
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            min-height: calc(100vh - 60px);
         }
 
         .form-container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .form-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 1rem;
+            padding: 1.8rem;
             text-align: center;
+            position: relative;
         }
 
-        .form-header h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
+        .form-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
         }
 
         .form-header p {
+            font-size: 0.9rem;
             opacity: 0.9;
-            font-size: 0.85rem;
+            font-weight: 400;
         }
 
         .form-content {
-            padding: 1rem;
+            padding: 1.5rem;
         }
 
-        .form-grid {
-            display: grid;
-            gap: 0.8rem;
+        .info-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #7dd3fc;
+            color: #0c4a6e;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+            font-size: 0.85rem;
+        }
+
+        .info-box h4 {
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .info-box ul {
+            margin-left: 1rem;
+            line-height: 1.5;
+        }
+
+        .info-box li {
+            margin-bottom: 0.2rem;
         }
 
         .form-group {
-            position: relative;
+            margin-bottom: 1.2rem;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         label {
             display: block;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
             color: #374151;
             font-weight: 600;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .label-icon {
-            margin-right: 0.5rem;
-            color: #667eea;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
         input[type="date"],
         select,
         textarea {
             width: 100%;
-            padding: 0.7rem 0.8rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 6px;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
             font-size: 0.9rem;
             transition: all 0.3s ease;
-            background: #f9fafb;
+            background: #f8fafc;
             font-family: inherit;
         }
 
@@ -186,6 +213,7 @@
             border-color: #667eea;
             background: white;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-1px);
         }
 
         select {
@@ -195,151 +223,57 @@
         textarea {
             resize: vertical;
             min-height: 80px;
-            font-family: inherit;
+            line-height: 1.5;
         }
 
         .submit-btn {
             width: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.9rem;
             border: none;
-            border-radius: 6px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            margin-top: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
         .submit-btn:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .form-footer {
-            background: #f8f9fa;
-            padding: 0.8rem 1rem;
-            text-align: center;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .form-footer p {
-            color: #6b7280;
-            font-size: 0.75rem;
-            margin: 0;
-        }
-
-        .form-footer a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .form-footer a:hover {
-            color: #5a67d8;
-            text-decoration: underline;
-        }
-
-        .leave-info {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border: 1px solid #bae6fd;
-            border-radius: 6px;
-            padding: 0.6rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .leave-info h4 {
-            color: #0369a1;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .leave-info ul {
-            color: #0c4a6e;
-            font-size: 0.7rem;
-            margin-left: 1rem;
-        }
-
-        .leave-info li {
-            margin-bottom: 0.15rem;
-        }
-
-        .character-count {
-            text-align: right;
-            font-size: 0.7rem;
-            color: #6b7280;
-            margin-top: 0.2rem;
-        }
-
-        .character-count.warning {
-            color: #d97706;
-        }
-
-        .character-count.error {
-            color: #dc2626;
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
         }
 
         @media (max-width: 768px) {
             .header-content {
-                padding: 0 0.5rem;
-                height: 55px;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
-
-            .container {
-                padding: 1rem 0.5rem;
-            }
-
-            .form-content {
-                padding: 0.8rem;
-            }
-
+            
             .form-row {
                 grid-template-columns: 1fr;
             }
 
-            .form-footer {
-                padding: 0.6rem 0.8rem;
+            .container {
+                padding: 1rem 0.5rem 3rem;
+                min-height: calc(100vh - 120px);
             }
 
-            .back-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
+            .form-content {
+                padding: 1.2rem;
             }
-        }
 
-        /* Loading animation */
-        .submit-btn.loading {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .submit-btn.loading::after {
-            content: '';
-            width: 14px;
-            height: 14px;
-            margin-left: 8px;
-            border: 2px solid transparent;
-            border-top: 2px solid white;
-            border-radius: 50%;
-            display: inline-block;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            .form-header {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -347,7 +281,10 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <h1 class="logo">Leave Management</h1>
+            <h1 class="logo">
+                <i class="fas fa-calendar-check"></i>
+                Leave Management System
+            </h1>
             <div class="nav-actions">
                 <a href="<%= request.getContextPath() %>/jsp/userDashboard.jsp" class="back-btn">
                     <i class="fas fa-home"></i>
@@ -365,90 +302,76 @@
     </header>
 
     <div class="container">
-        <!-- Form Container -->
         <div class="form-container">
             <div class="form-header">
-                <h3><i class="fas fa-calendar-plus"></i> Leave Request Form</h3>
-                <p>Fill in the required information</p>
+                <h2>
+                    <i class="fas fa-calendar-plus"></i>
+                    Apply for Leave
+                </h2>
+                <p>Fill in your leave request details</p>
             </div>
 
             <div class="form-content">
-                <!-- Leave Information -->
-                <div class="leave-info">
-                    <h4><i class="fas fa-info-circle"></i> Quick Guidelines</h4>
+                <div class="info-box">
+                    <h4>
+                        <i class="fas fa-info-circle"></i>
+                        Guidelines
+                    </h4>
                     <ul>
-                        <li>Sick Leave: Medical certificate for 3+ days</li>
-                        <li>Casual/Earned Leave: Apply in advance</li>
+                        <li>Sick Leave: Medical certificate required for 3+ days</li>
+                        <li>Apply in advance for planned leaves</li>
                         <li>Maximum 15 days per request</li>
                     </ul>
                 </div>
 
-                <form action="<%= request.getContextPath() %>/LeaveRequestServlet" method="post" id="leaveForm">
-                    <div class="form-grid">
-                        <!-- Leave Type -->
-                        <div class="form-group">
-                            <label for="leaveType">
-                                <i class="fas fa-list-ul label-icon"></i>
-                                Leave Type
-                            </label>
-                            <select id="leaveType" name="leaveType" required>
-                                <option value="">-- Select Leave Type --</option>
-                                <option value="Sick Leave">Sick Leave</option>
-                                <option value="Casual Leave">Casual Leave</option>
-                                <option value="Earned Leave">Earned Leave</option>
-                                <option value="Maternity Leave">Maternity Leave</option>
-                                <option value="Paternity Leave">Paternity Leave</option>
-                                <option value="Emergency Leave">Emergency Leave</option>
-                            </select>
-                        </div>
-
-                        <!-- Date Range -->
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fromDate">
-                                    <i class="fas fa-calendar-day label-icon"></i>
-                                    From Date
-                                </label>
-                                <input type="date" id="fromDate" name="fromDate" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="toDate">
-                                    <i class="fas fa-calendar-day label-icon"></i>
-                                    To Date
-                                </label>
-                                <input type="date" id="toDate" name="toDate" required>
-                            </div>
-                        </div>
-
-                        <!-- Reason -->
-                        <div class="form-group">
-                            <label for="reason">
-                                <i class="fas fa-comment-alt label-icon"></i>
-                                Reason for Leave
-                            </label>
-                            <textarea 
-                                id="reason" 
-                                name="reason" 
-                                rows="3" 
-                                required 
-                                placeholder="Please provide reason for your leave request..."
-                                maxlength="300"
-                                oninput="updateCharacterCount()"
-                            ></textarea>
-                            <div class="character-count" id="charCount">0/300 characters</div>
-                        </div>
-
-                        <!-- Submit Button -->
-                        <button type="submit" class="submit-btn" id="submitBtn">
-                            <i class="fas fa-paper-plane"></i>
-                            Submit Request
-                        </button>
+                <form action="<%= request.getContextPath() %>/LeaveRequestServlet" method="post">
+                    <div class="form-group">
+                        <label for="leaveType">
+                            <i class="fas fa-list-ul"></i>
+                            Leave Type
+                        </label>
+                        <select id="leaveType" name="leaveType" required>
+                            <option value="">-- Select Leave Type --</option>
+                            <option value="Sick Leave">Sick Leave</option>
+                            <option value="Casual Leave">Casual Leave</option>
+                            <option value="Earned Leave">Earned Leave</option>
+                            <option value="Maternity Leave">Maternity Leave</option>
+                            <option value="Paternity Leave">Paternity Leave</option>
+                            <option value="Emergency Leave">Emergency Leave</option>
+                        </select>
                     </div>
-                </form>
-            </div>
 
-            <div class="form-footer">
-                <p><a href="#" onclick="showHelp()">View Policy</a> | <a href="<%= request.getContextPath() %>/LeaveStatusServlet">Check Status</a></p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fromDate">
+                                <i class="fas fa-calendar-day"></i>
+                                From Date
+                            </label>
+                            <input type="date" id="fromDate" name="fromDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="toDate">
+                                <i class="fas fa-calendar-day"></i>
+                                To Date
+                            </label>
+                            <input type="date" id="toDate" name="toDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reason">
+                            <i class="fas fa-comment-alt"></i>
+                            Reason for Leave
+                        </label>
+                        <textarea id="reason" name="reason" rows="3" required 
+                                  placeholder="Please provide reason for your leave request..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Request
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -461,24 +384,6 @@
             document.getElementById('toDate').setAttribute('min', today);
         });
 
-        // Update character count
-        function updateCharacterCount() {
-            const textarea = document.getElementById('reason');
-            const charCount = document.getElementById('charCount');
-            const current = textarea.value.length;
-            const max = 300;
-            
-            charCount.textContent = `${current}/${max} characters`;
-            
-            if (current > max * 0.9) {
-                charCount.className = 'character-count error';
-            } else if (current > max * 0.7) {
-                charCount.className = 'character-count warning';
-            } else {
-                charCount.className = 'character-count';
-            }
-        }
-
         // Date validation
         document.getElementById('fromDate').addEventListener('change', function() {
             const fromDate = this.value;
@@ -489,32 +394,6 @@
                 toDateInput.value = fromDate;
             }
         });
-
-        // Form submission with loading state
-        document.getElementById('leaveForm').addEventListener('submit', function(e) {
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.classList.add('loading');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-            
-            // Validate dates
-            const fromDate = new Date(document.getElementById('fromDate').value);
-            const toDate = new Date(document.getElementById('toDate').value);
-            const diffTime = Math.abs(toDate - fromDate);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
-            
-            if (diffDays > 15) {
-                e.preventDefault();
-                alert('Maximum 15 days leave allowed per request');
-                submitBtn.classList.remove('loading');
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request';
-                return false;
-            }
-        });
-
-        // Show help modal
-        function showHelp() {
-            alert('Leave Policy:\n\n• Sick Leave: Medical certificate required for 3+ consecutive days\n• Casual Leave: Apply at least 1 day in advance\n• Earned Leave: Apply at least 7 days in advance\n• Emergency Leave: Can be applied on the same day\n• Maximum 15 days per single request\n• All leaves subject to manager approval');
-        }
     </script>
 </body>
 </html>

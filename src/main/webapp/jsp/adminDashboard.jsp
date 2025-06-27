@@ -22,16 +22,17 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: #1a202c;
             min-height: 100vh;
-            color: #333;
         }
 
         .header {
-            background: white;
-            border-bottom: 1px solid #e5e7eb;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            color: white;
+            padding: 1.2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .header-content {
@@ -41,139 +42,142 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #111827;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo i {
-            color: #ef4444;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .user-info {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            background: #f8f9fa;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
             padding: 0.5rem 1rem;
-            border-radius: 50px;
-            border: 1px solid #e5e7eb;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
         }
 
         .user-avatar {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #c53030 0%, #9c1c1c 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1rem;
-        }
-
-        .user-name {
-            font-weight: 600;
-            color: #111827;
-            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .admin-badge {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            background: linear-gradient(135deg, #c53030 0%, #9c1c1c 100%);
             color: white;
-            padding: 0.15rem 0.5rem;
+            padding: 0.25rem 0.6rem;
             border-radius: 12px;
             font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-left: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
         }
 
         .welcome-section {
             text-align: center;
-            color: white;
             margin-bottom: 3rem;
         }
 
         .welcome-title {
             font-size: 2.5rem;
-            font-weight: bold;
+            font-weight: 700;
+            color: #1a202c;
             margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: -1px;
         }
 
         .welcome-subtitle {
+            color: #64748b;
             font-size: 1.1rem;
-            opacity: 0.9;
+            font-weight: 400;
         }
 
-        .manage-requests-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+        .admin-card {
+            background: white;
             padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
             margin-bottom: 3rem;
-            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .manage-requests-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        .admin-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
         }
 
-        .manage-icon {
+        .admin-icon {
             font-size: 4rem;
-            color: #ef4444;
+            color: #e53e3e;
             margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 16px rgba(229, 62, 62, 0.2);
         }
 
-        .manage-title {
+        .admin-title {
             font-size: 1.8rem;
-            font-weight: bold;
-            color: #111827;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #1a202c;
+            letter-spacing: -0.5px;
         }
 
-        .manage-subtitle {
-            color: #6b7280;
-            font-size: 1rem;
+        .admin-description {
+            color: #64748b;
             margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
-        .manage-action {
-            padding: 1.2rem 2.5rem;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        .admin-button {
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
             color: white;
-            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border: none;
             border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.8rem;
+            font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
         }
 
-        .manage-action:hover {
+        .admin-button:hover {
+            background: linear-gradient(135deg, #c53030 0%, #9c1c1c 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+            box-shadow: 0 8px 20px rgba(229, 62, 62, 0.4);
         }
 
         .logout-section {
@@ -181,46 +185,47 @@
         }
 
         .logout-btn {
-            padding: 0.75rem 2rem;
-            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
             color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 10px;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(107, 114, 128, 0.3);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
         }
 
         .logout-btn:hover {
+            background: linear-gradient(135deg, #475569 0%, #334155 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(107, 114, 128, 0.4);
+            box-shadow: 0 8px 20px rgba(100, 116, 139, 0.4);
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem 0.5rem;
+            .header-content {
+                padding: 0 0.5rem;
             }
-
+            
+            .container {
+                padding: 2rem 0.5rem;
+            }
+            
             .welcome-title {
                 font-size: 2rem;
             }
-
-            .manage-requests-card {
+            
+            .admin-card {
                 padding: 2rem;
             }
 
-            .manage-icon {
+            .admin-icon {
+                width: 80px;
+                height: 80px;
                 font-size: 3rem;
-            }
-
-            .manage-title {
-                font-size: 1.5rem;
             }
         }
     </style>
@@ -231,13 +236,13 @@
         <div class="header-content">
             <h1 class="logo">
                 <i class="fas fa-shield-alt"></i>
-                Leave Management
+                Leave Management System
             </h1>
             <div class="user-info">
                 <div class="user-avatar">
                     <%= username.substring(0,1).toUpperCase() %>
                 </div>
-                <div class="user-name"><%= username %><span class="admin-badge">Admin</span></div>
+                <span><%= username %><span class="admin-badge">Admin</span></span>
             </div>
         </div>
     </header>
@@ -246,21 +251,19 @@
         <!-- Welcome Section -->
         <div class="welcome-section">
             <h2 class="welcome-title">Admin Dashboard</h2>
-            <p class="welcome-subtitle">Manage team leave requests</p>
+            <p class="welcome-subtitle">Manage employee leave requests efficiently</p>
         </div>
 
-        <!-- Manage Requests Card -->
-        <div class="manage-requests-card">
-            <div class="manage-icon">
+        <!-- Admin Card -->
+        <div class="admin-card">
+            <div class="admin-icon">
                 <i class="fas fa-tasks"></i>
             </div>
-            
-            <div class="manage-title">Manage Leave Requests</div>
-            <div class="manage-subtitle">Review and approve employee leave applications</div>
-            
-            <a href="<%= request.getContextPath() %>/AdminLeaveRequestsServlet" class="manage-action">
+            <h3 class="admin-title">Manage Leave Requests</h3>
+            <p class="admin-description">Review, approve, or reject employee leave applications with ease</p>
+            <a href="<%= request.getContextPath() %>/AdminLeaveRequestsServlet" class="admin-button">
                 <i class="fas fa-arrow-right"></i>
-                Go to Requests
+                View Requests
             </a>
         </div>
 

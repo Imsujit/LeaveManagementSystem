@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
@@ -21,8 +21,9 @@
 
         .header {
             background: white;
-            border-bottom: 1px solid #e5e7eb;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            color: #1a202c;
+            padding: 1.2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .header-content {
@@ -32,13 +33,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #111827;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a202c;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -51,106 +51,143 @@
         .user-info {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            background: #f8f9fa;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 0.5rem 1rem;
-            border-radius: 50px;
-            border: 1px solid #e5e7eb;
+            border-radius: 25px;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
         }
 
         .user-avatar {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1rem;
-        }
-
-        .user-name {
-            font-weight: 600;
-            color: #111827;
-            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .container {
-            max-width: 600px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
         }
 
         .welcome-section {
             text-align: center;
-            color: white;
             margin-bottom: 3rem;
+            color: white;
         }
 
         .welcome-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: -1px;
         }
 
         .welcome-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             opacity: 0.9;
+            font-weight: 400;
         }
 
-        .action-buttons {
+        .dashboard-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin-bottom: 3rem;
         }
 
-        .action-btn {
-            padding: 2rem 1.5rem;
+        .dashboard-card {
+            background: white;
+            padding: 2.5rem;
             border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             text-align: center;
             transition: all 0.3s ease;
-            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
-            border: none;
-            cursor: pointer;
-            background: white;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
-        .action-btn i {
-            font-size: 3rem;
+        .card-icon.apply {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
         }
 
-        .action-btn.primary {
+        .card-icon.status {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #1a202c;
+            letter-spacing: -0.5px;
+        }
+
+        .card-description {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.5;
+        }
+
+        .card-button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
-        .action-btn.primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        .card-button:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
         }
 
-        .action-btn.secondary {
-            background: white;
-            color: #495057;
-            border: 2px solid #e9ecef;
+        .card-button.secondary {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
         }
 
-        .action-btn.secondary:hover {
-            background: #f8f9fa;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        .card-button.secondary:hover {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4);
         }
 
         .logout-section {
@@ -158,47 +195,52 @@
         }
 
         .logout-btn {
-            padding: 0.75rem 2rem;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
             color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 12px;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
         }
 
         .logout-btn:hover {
+            background: linear-gradient(135deg, #c53030 0%, #9c1c1c 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+            box-shadow: 0 8px 20px rgba(229, 62, 62, 0.4);
         }
 
         @media (max-width: 768px) {
+            .header-content {
+                padding: 0 0.5rem;
+            }
+            
             .container {
-                padding: 1rem 0.5rem;
+                padding: 2rem 0.5rem;
             }
-
+            
             .welcome-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
-
-            .action-buttons {
+            
+            .dashboard-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                gap: 1.5rem;
             }
 
-            .action-btn {
-                padding: 1.5rem;
+            .dashboard-card {
+                padding: 2rem;
             }
 
-            .action-btn i {
-                font-size: 2.5rem;
+            .card-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
             }
         }
     </style>
@@ -209,14 +251,14 @@
         <div class="header-content">
             <h1 class="logo">
                 <i class="fas fa-calendar-check"></i>
-                Leave Management
+                Leave Management System
             </h1>
             <div class="user-info">
                 <div class="user-avatar">
                     <%= session.getAttribute("username") != null ? 
                         session.getAttribute("username").toString().substring(0,1).toUpperCase() : "U" %>
                 </div>
-                <div class="user-name"><%= session.getAttribute("username") %></div>
+                <span><%= session.getAttribute("username") %></span>
             </div>
         </div>
     </header>
@@ -225,19 +267,34 @@
         <!-- Welcome Section -->
         <div class="welcome-section">
             <h2 class="welcome-title">Welcome, <%= session.getAttribute("username") %>!</h2>
-            <p class="welcome-subtitle">Your personal leave dashboard</p>
+            <p class="welcome-subtitle">Your personal leave management dashboard</p>
         </div>
 
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-            <a href="<%= request.getContextPath() %>/jsp/leaveRequest.jsp" class="action-btn primary">
-                <i class="fas fa-plus-circle"></i>
-                Apply for Leave
-            </a>
-            <a href="<%= request.getContextPath() %>/LeaveStatusServlet" class="action-btn secondary">
-                <i class="fas fa-list-alt"></i>
-                View Leave Status
-            </a>
+        <!-- Dashboard Cards -->
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-icon apply">
+                    <i class="fas fa-plus-circle"></i>
+                </div>
+                <h3 class="card-title">Apply for Leave</h3>
+                <p class="card-description">Submit a new leave request with all necessary details</p>
+                <a href="<%= request.getContextPath() %>/jsp/leaveRequest.jsp" class="card-button">
+                    <i class="fas fa-paper-plane"></i>
+                    Apply Now
+                </a>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon status">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="card-title">View Leave Status</h3>
+                <p class="card-description">Check the status and history of your leave requests</p>
+                <a href="<%= request.getContextPath() %>/LeaveStatusServlet" class="card-button secondary">
+                    <i class="fas fa-eye"></i>
+                    View Status
+                </a>
+            </div>
         </div>
 
         <!-- Logout Section -->

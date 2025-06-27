@@ -15,16 +15,17 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #f9fafb;
-            color: #111827;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            color: #1a202c;
         }
 
         .header {
             background: white;
-            border-bottom: 1px solid #e5e7eb;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            color: #1a202c;
+            padding: 1.2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .header-content {
@@ -34,13 +35,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 64px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #111827;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: #667eea;
         }
 
         .nav-actions {
@@ -50,42 +57,46 @@
         }
 
         .back-btn {
-            padding: 0.5rem 1rem;
-            background: #16a34a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: all 0.3s ease;
             font-size: 0.9rem;
+            font-weight: 500;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
         }
 
         .back-btn:hover {
-            background: #15803d;
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
             transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
         }
 
         .user-info {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: #64748b;
             font-weight: 500;
-            color: #374151;
         }
 
         .user-avatar {
             width: 32px;
             height: 32px;
-            background: #16a34a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .container {
@@ -97,17 +108,18 @@
         .page-header {
             text-align: center;
             margin-bottom: 2rem;
+            color: white;
         }
 
         .page-title {
             font-size: 2rem;
             font-weight: bold;
-            color: #111827;
+            color: white;
             margin-bottom: 0.5rem;
         }
 
         .page-subtitle {
-            color: #6b7280;
+            color: rgba(255, 255, 255, 0.9);
             font-size: 1rem;
         }
 
@@ -330,12 +342,9 @@
 
         @media (max-width: 768px) {
             .header-content {
-                padding: 0 0.5rem;
                 flex-direction: column;
-                height: auto;
-                padding-top: 1rem;
-                padding-bottom: 1rem;
                 gap: 1rem;
+                text-align: center;
             }
 
             .container {
@@ -388,11 +397,14 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <h1 class="logo">Leave Management</h1>
+            <h1 class="logo">
+                <i class="fas fa-calendar-check"></i>
+                Leave Management System
+            </h1>
             <div class="nav-actions">
                 <a href="<%= request.getContextPath() %>/jsp/userDashboard.jsp" class="back-btn">
-                    <i class="fas fa-arrow-left"></i>
-                    Back to Dashboard
+                    <i class="fas fa-home"></i>
+                    Dashboard
                 </a>
                 <div class="user-info">
                     <div class="user-avatar">

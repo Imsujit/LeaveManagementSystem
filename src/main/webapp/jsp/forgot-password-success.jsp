@@ -2,135 +2,251 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Email Sent - Forgot Password</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <title>Email Sent - Leave Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #333;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            padding: 2rem 1rem;
+        }
 
-    .message-container {
-      width: 500px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      text-align: center;
-    }
+        .message-container {
+            width: 400px;
+            max-width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-    .message-header {
-      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-      color: white;
-      padding: 2rem;
-    }
+        .message-header {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(22, 163, 74, 0.9) 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
 
-    .message-header h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+        .message-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
 
-    .message-content {
-      padding: 2rem;
-    }
+        .message-header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
 
-    .success-icon {
-      font-size: 4rem;
-      color: #27ae60;
-      margin-bottom: 1rem;
-    }
+        .message-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
 
-    .message-text {
-      font-size: 1.1rem;
-      color: #2c3e50;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
+        .success-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        }
 
-    .info-box {
-      background: #e8f5e8;
-      border: 1px solid #c3e6c3;
-      color: #2d5a2d;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
-    }
+        .message-text {
+            font-size: 0.95rem;
+            color: #374151;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            font-weight: 400;
+        }
 
-    .back-btn {
-      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-      color: white;
-      padding: 0.9rem 2rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
+        .info-box {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            border: 1px solid #7dd3fc;
+            color: #0c4a6e;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            text-align: left;
+        }
 
-    .back-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
-    }
+        .info-box h4 {
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
 
-    @media (max-width: 480px) {
-      .message-container {
-        width: 90%;
-        margin: 1rem;
-      }
+        .info-box ol {
+            margin-left: 1rem;
+            line-height: 1.4;
+        }
 
-      .message-header {
-        padding: 1.5rem;
-      }
+        .info-box li {
+            margin-bottom: 0.2rem;
+        }
 
-      .message-content {
-        padding: 1.5rem;
-      }
-    }
-  </style>
+        .back-btn {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+            font-family: inherit;
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+        }
+
+        .form-footer {
+            text-align: center;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .form-footer p {
+            color: #64748b;
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+            font-weight: 400;
+        }
+
+        .form-footer a {
+            color: #22c55e;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-footer a:hover {
+            color: #16a34a;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .message-container {
+                width: 100%;
+            }
+
+            .message-header {
+                padding: 1.2rem;
+            }
+
+            .message-content {
+                padding: 1.2rem;
+            }
+
+            .form-footer {
+                padding: 0.8rem 1.2rem;
+            }
+
+            .message-header h2 {
+                font-size: 1.2rem;
+            }
+
+            .success-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="message-container">
-    <div class="message-header">
-      <h2>📧 Email Sent Successfully</h2>
+    <div class="message-container">
+        <div class="message-header">
+            <h2>
+                <i class="fas fa-envelope"></i>
+                Email Sent Successfully
+            </h2>
+            <p>Password reset instructions delivered</p>
+        </div>
+        
+        <div class="message-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <p class="message-text">
+                <%= request.getAttribute("successMessage") != null ? 
+                    request.getAttribute("successMessage") : 
+                    "Password reset link has been sent to your email address." %>
+            </p>
+            
+            <div class="info-box">
+                <h4>
+                    <i class="fas fa-list-check"></i>
+                    Next Steps:
+                </h4>
+                <ol>
+                    <li>Check your email inbox</li>
+                    <li>Click the reset link</li>
+                    <li>Create new password</li>
+                    <li>Login with new credentials</li>
+                </ol>
+            </div>
+            
+            <a href="<%=request.getContextPath()%>/jsp/login.jsp" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Login
+            </a>
+        </div>
+
+        <div class="form-footer">
+            <p>Need help? <a href="<%=request.getContextPath()%>/jsp/register.jsp">
+                <i class="fas fa-user-plus"></i>
+                Create new account
+            </a></p>
+        </div>
     </div>
-    
-    <div class="message-content">
-      <div class="success-icon">✅</div>
-      
-      <p class="message-text">
-        <%= request.getAttribute("successMessage") != null ? 
-            request.getAttribute("successMessage") : 
-            "Password reset link has been sent to your email address." %>
-      </p>
-      
-      <div class="info-box">
-        <strong>📋 Next Steps:</strong><br>
-        1. Check your email inbox (and spam folder)<br>
-        2. Click the reset link in the email<br>
-        3. Create your new password<br>
-        4. Login with your new credentials
-      </div>
-      
-      <a href="<%=request.getContextPath()%>/jsp/login.jsp" class="back-btn">
-        ← Back to Login
-      </a>
-    </div>
-  </div>
 </body>
 </html>
