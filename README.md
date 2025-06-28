@@ -1,4 +1,4 @@
-# 🌿 Leave Management System
+#  Leave Management System
 
 A full-featured **Java-based web application** for managing employee leave requests. Built using **JSP**, **Servlets**, **MySQL**, and **CSS/JS**, this system supports **role-based login**, **email-based password recovery**, and **leave request management** with a clean and user-friendly interface.
 
