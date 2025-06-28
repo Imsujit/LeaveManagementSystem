@@ -43,140 +43,33 @@ A full-featured **Java-based web application** for managing employee leave reque
 
 ---
 
-## 🗂 Project Structure
+## 📷 Screenshots
 
-LeaveManagementSystem/
-│
-├── src/
-│ └── main/
-│ └── java/
-│ └── com/
-│ └── leaveapp/
-│ ├── AdminActionServlet.java
-│ ├── AdminLeaveRequestsServlet.java
-│ ├── DBConnection.java
-│ ├── EmailUtil.java
-│ ├── ForgotPasswordServlet.java
-│ ├── LeaveRequest.java
-│ ├── LeaveRequestServlet.java
-│ ├── LeaveStatusServlet.java
-│ ├── LoginServlet.java
-│ ├── LogoutServlet.java
-│ ├── RegisterServlet.java
-│ └── ResetPasswordServlet.java
-│
-├── src/
-│ └── main/
-│ └── webapp/
-│ └── jsp/
-│ ├── adminDashboard.jsp
-│ ├── adminLeaveRequests.jsp
-│ ├── forgot-password.jsp
-│ ├── forgot-password-success.jsp
-│ ├── leaveRequest.jsp
-│ ├── leaveStatus.jsp
-│ ├── login.jsp
-│ ├── logout.jsp
-│ ├── register.jsp
-│ ├── reset-password.jsp
-│ ├── reset-password-error.jsp
-│ ├── reset-password-success.jsp
-│ └── userDashboard.jsp
-│
-├── META-INF/
-├── WEB-INF/
-│ └── web.xml
+## Register page
+![Screenshot 2025-06-28 at 12-41-00 Register - Leave Management](https://github.com/user-attachments/assets/5799e306-d848-468c-ba54-c54c7a757f6d)
 
+## Login page
+![Screenshot 2025-06-28 at 12-51-25 Login - Leave Management](https://github.com/user-attachments/assets/3817bf29-e97e-40fd-9abd-b576aebf6d51)
+
+## Admin dashboard
+![Screenshot 2025-06-28 at 12-53-42 Admin Dashboard - Leave Management](https://github.com/user-attachments/assets/0bc0aa01-5465-4220-b6e7-7f74fa0154be)
+
+
+![Screenshot 2025-06-28 at 12-53-52 Admin - Leave Requests](https://github.com/user-attachments/assets/17f672e4-eca2-4d1e-b455-7f5e38924220)
+
+## User dashboard
+![Screenshot 2025-06-28 at 12-55-05 User Dashboard - Leave Management](https://github.com/user-attachments/assets/35515f32-864f-4ee3-b890-56af4c2cfc92)
+
+
+![Screenshot 2025-06-28 at 12-55-21 Leave Status - Leave Management](https://github.com/user-attachments/assets/7c815013-fd07-44ef-8e14-17fe495dfc7b)
 
 ---
 
-## 🧪 Database Schema (MySQL)
-
-### `users` Table
-
-```sql
-CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(100) NOT NULL,
-  password VARCHAR(256) NOT NULL,
-  role VARCHAR(10) NOT NULL,
-  email VARCHAR(150) NOT NULL
-);
-
-### `leave_requests` Table
-
-CREATE TABLE leave_requests (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(100),
-  leave_type VARCHAR(50),
-  from_date DATE,
-  to_date DATE,
-  reason TEXT,
-  status VARCHAR(20)
-);
-
-### `password_reset_tokens` Table
-
-CREATE TABLE password_reset_tokens (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) NOT NULL,
-    token VARCHAR(255) NOT NULL UNIQUE,
-    expires_at TIMESTAMP NOT NULL,
-    used BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    INDEX idx_token (token),
-    INDEX idx_email (email),
-    INDEX idx_expires (expires_at)
-);
+### 💡 Future Enhancements:
+- Leave request history export (PDF/CSV)
+- Profile management
+- Admin analytics dashboard
 
 
-🧑‍💻 How to Run
-1. Clone Repo
-git clone https://github.com/your-username/LeaveManagementSystem.git
-cd LeaveManagementSystem
-
-2. Open in Eclipse
-    Import as Dynamic Web Project
-    Configure Apache Tomcat 10
-    Add MySQL JDBC connector to the lib/ folder
-
-3. Configure DB
-    Create database leave_management
-    Run above schema SQL to create tables
-    Update your DB credentials in DBConnection.java:
-    String url = "jdbc:mysql://localhost:3306/leave_management";
-    String user = "root";
-    String password = "your_password";
-
-4. Configure Mail
-In EmailUtil.java, set:
-final String fromEmail = "your_email@gmail.com";
-final String password = "your_email_password";
-
-Enable Less Secure App Access or use App Password if 2FA is on
-
-📷 Screenshots
-
-Register page:
-![image](https://github.com/user-attachments/assets/c18b54c6-04da-402d-a1ec-3a4e5ca91c3d)
-
-Login page:
-![image](https://github.com/user-attachments/assets/e438e6a7-71df-4393-9ccc-6a896c06246c)
-
-Admin dashboard:
-![image](https://github.com/user-attachments/assets/94bed449-6d3b-4d69-8d4c-2d8e1c3ef37d)
-![image](https://github.com/user-attachments/assets/dde04683-2ce0-46d5-a242-74d7733f104c)
-
-User dashboard:
-![image](https://github.com/user-attachments/assets/19f1592d-e3c9-46b3-8e38-8044f32c3f87)
-![image](https://github.com/user-attachments/assets/7302b92b-f32d-4195-939b-495b768e7527)
-
-
-💡 Future Enhancements
-    Leave request history export (PDF/CSV)
-    Profile management
-    Admin analytics dashboard
-
-
-📄 License
-This project is licensed under the MIT License.
+### 📄 License:
+- This project is licensed under the MIT License.
