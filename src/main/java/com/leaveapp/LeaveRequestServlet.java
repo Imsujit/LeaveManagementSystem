@@ -2,7 +2,6 @@ package com.leaveapp;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 import jakarta.servlet.ServletException;
@@ -35,8 +34,7 @@ public class LeaveRequestServlet extends HttpServlet {
 		try {
 			Class.forName("org.postgresql.Driver");
 
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/leave_management",
-					"postgres", "password");
+			Connection conn = DBConnection.getConnection();
 
 			String sql = "INSERT INTO leave_requests (username, leave_type, from_date, to_date, reason, status) "
 					+ "VALUES (?, ?, ?, ?, ?, ?)";
