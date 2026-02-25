@@ -2,7 +2,6 @@ package com.leaveapp;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class LeaveStatusServlet extends HttpServlet {
 		List<LeaveRequest> leaveList = new ArrayList<>();
 
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/leave_management", "root", "root");
+			Class.forName("org.postgresql.Driver");
+			Connection conn = DBConnection.getConnection();
 
 			String sql = "SELECT leave_type, from_date, to_date, reason, status FROM leave_requests WHERE username = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);

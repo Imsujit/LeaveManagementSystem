@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jbcrypt-0.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sujit/Downloads/javax.mail-1.6.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sujit/Downloads/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/postgresql-42.7.8.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

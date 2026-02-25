@@ -26,8 +26,9 @@ public class AdminLeaveRequestsServlet extends HttpServlet {
 		List<LeaveRequest> leaveRequests = new ArrayList<>();
 
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/leave_management", "root", "root");
+			Class.forName("org.postgresql.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/leave_management", "postgres",
+					"password");
 
 			String sql = "SELECT id, username, leave_type, from_date, to_date, reason, status FROM leave_requests";
 			PreparedStatement ps = conn.prepareStatement(sql);
